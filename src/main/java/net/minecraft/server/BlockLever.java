@@ -37,29 +37,31 @@ public class BlockLever extends Block {
         int j1 = i1 & 8;
         int k1 = i1 & 7;
         byte b0 = -1;
-
-        if (l == 0 && world.getType(i, j + 1, k).r()) {
-            b0 = 0;
-        }
-
-        if (l == 1 && World.a((IBlockAccess) world, i, j - 1, k)) {
-            b0 = 5;
-        }
-
-        if (l == 2 && world.getType(i, j, k + 1).r()) {
-            b0 = 4;
-        }
-
-        if (l == 3 && world.getType(i, j, k - 1).r()) {
-            b0 = 3;
-        }
-
-        if (l == 4 && world.getType(i + 1, j, k).r()) {
-            b0 = 2;
-        }
-
-        if (l == 5 && world.getType(i - 1, j, k).r()) {
-            b0 = 1;
+        
+        if(l == 0) {
+            if (world.getType(i, j + 1, k).r()) {
+                b0 = 0;
+            }
+        }else if(l == 1) {
+            if (World.a((IBlockAccess) world, i, j - 1, k)) {
+                b0 = 5;
+            }
+        }else if(l == 2) {
+            if (world.getType(i, j, k + 1).r()) {
+                b0 = 4;
+            }
+        }else if(l == 3) {
+            if (world.getType(i, j, k - 1).r()) {
+                b0 = 3;
+            }
+        }else if(l == 4) {
+            if (world.getType(i + 1, j, k).r()) {
+                b0 = 2;
+            }
+        }else if(l == 5) {
+            if (world.getType(i - 1, j, k).r()) {
+                b0 = 1;
+            }
         }
 
         return b0 + j1;
@@ -117,33 +119,19 @@ public class BlockLever extends Block {
 
             if (!world.getType(i - 1, j, k).r() && l == 1) {
                 flag = true;
-            }
-
-            if (!world.getType(i + 1, j, k).r() && l == 2) {
+            }else if (!world.getType(i + 1, j, k).r() && l == 2) {
                 flag = true;
-            }
-
-            if (!world.getType(i, j, k - 1).r() && l == 3) {
+            }else if (!world.getType(i, j, k - 1).r() && l == 3) {
                 flag = true;
-            }
-
-            if (!world.getType(i, j, k + 1).r() && l == 4) {
+            }else if (!world.getType(i, j, k + 1).r() && l == 4) {
                 flag = true;
-            }
-
-            if (!World.a((IBlockAccess) world, i, j - 1, k) && l == 5) {
+            }else if (!World.a((IBlockAccess) world, i, j - 1, k) && l == 5) {
                 flag = true;
-            }
-
-            if (!World.a((IBlockAccess) world, i, j - 1, k) && l == 6) {
+            }else if (!World.a((IBlockAccess) world, i, j - 1, k) && l == 6) {
                 flag = true;
-            }
-
-            if (!world.getType(i, j + 1, k).r() && l == 0) {
+            }else if (!world.getType(i, j + 1, k).r() && l == 0) {
                 flag = true;
-            }
-
-            if (!world.getType(i, j + 1, k).r() && l == 7) {
+            }else if (!world.getType(i, j + 1, k).r() && l == 7) {
                 flag = true;
             }
 
